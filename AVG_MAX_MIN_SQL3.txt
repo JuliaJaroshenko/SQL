@@ -1,0 +1,70 @@
+10.
+SELECT DISTINCT model, price
+FROM Printer
+WHERE price = (SELECT max(price) 
+ FROM printer)
+
+11.
+Select avg (speed) as a_speed
+From PC
+
+12.
+Select avg(speed) as a_speed
+from Laptop
+where price >1000
+
+
+13.
+Select avg(speed) 
+from pc  join product on pc.model= product.model
+where maker = 'A'
+
+14.
+select classes.class, name, country
+from classes join ships on classes.class =ships.class
+where numGuns >=10
+
+
+15.Select hd  
+from pc 
+group by hd 
+having count(model)>1
+
+17.
+Select distinct  type, laptop.model, speed 
+from product join laptop on product.model=laptop.model
+where speed <(select min(speed) from PC)
+
+
+18.
+Select distinct maker, price
+from printer join product on product.model =printer.model
+where price =(select min (price) from printer where color = 'Y') and color= 'Y'
+
+
+19.
+Select maker, avg(screen)
+from product join laptop on product.model=laptop.model
+group by maker
+
+
+20.
+select maker, count(model)as c_model
+from product 
+where type= 'PC'
+group by maker
+having count (model)>=3
+
+21.
+Select maker, max(price) as m_price
+from PC join product on pc.model=product.model
+group by maker
+
+22.
+Select speed, avg(price) as a_price
+from pc join product on pc.model=product.model
+group by speed
+having avg(speed)>600
+
+
+24,25,26 -не змогла(
